@@ -22,12 +22,12 @@ Valid values on specific columns:
 /* SQL Runner Script to monitor imports and send alerts */
 USE AAD;
 GO
-IF EXISTS (SELECT 1 FROM dbo.t_pt_sql_runner tpsr WHERE tpsr.name = 'Outbound Delivery Flow')
+IF EXISTS (SELECT 1 FROM dbo.t_sql_runner tpsr WHERE tpsr.name = 'Outbound Delivery Flow')
 BEGIN
-	DELETE dbo.t_pt_sql_runner WHERE name = 'Outbound Delivery Flow';
+	DELETE dbo.t_sql_runner WHERE name = 'Outbound Delivery Flow';
 END
 GO
-INSERT INTO dbo.t_pt_sql_runner 
+INSERT INTO dbo.t_sql_runner 
 	( name, enabled, sql, daysofweek, start_time
     , end_time, freq_minutes, ins_dt)
 VALUES ('Outbound Delivery Flow', 1
