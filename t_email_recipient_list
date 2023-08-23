@@ -1,0 +1,11 @@
+CREATE TABLE [dbo].[t_email_recipient_list]
+(
+[unique_id] [int] NOT NULL IDENTITY(1, 1),
+[source] [varchar] (100) COLLATE Latin1_General_BIN NULL,
+[recipient_list] [varchar] (max) COLLATE Latin1_General_BIN NULL,
+[copy_recipient_list] [varchar] (max) COLLATE Latin1_General_BIN NULL,
+ADD CONSTRAINT [pk_t_email_recipient_list] PRIMARY KEY CLUSTERED ([unique_id])
+) ON [PRIMARY]
+GO
+GRANT SELECT ON  [dbo].[t_email_recipient_list] TO [HJS]
+GO
